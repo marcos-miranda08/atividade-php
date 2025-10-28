@@ -1,0 +1,95 @@
+:root{
+    --bg: #000;            /* preto */
+    --card: #0f0a12;       /* caixa escura */
+    --purple: #7b2cbf;     /* roxo principal */
+    --purple-dark: #5a1f93;
+    --text: #e9e5f7;
+    --muted: #bfb6e8;
+    --radius: 8px;
+    --max-width: 720px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%; margin:0; font-family: Arial, Helvetica, sans-serif; background:var(--bg); color:var(--text)}
+body{display:flex; align-items:center; justify-content:center; padding:24px}
+
+/* Container simples */
+.container{
+    width:100%;
+    max-width:var(--max-width);
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:18px;
+    border:1px solid rgba(255,255,255,0.04);
+}
+
+/* Cabeçalho */
+header{ text-align:center; margin-bottom:12px }
+header h1{ margin:0; color:var(--purple); font-size:1.3rem }
+header .descricao{ margin:6px 0 0; color:var(--muted); font-size:0.95rem }
+
+/* Formulário básico */
+.formulario{ display:flex; justify-content:center; margin:12px 0 }
+.formulario form{ width:100%; max-width:600px; display:flex; gap:8px; align-items:center }
+.formulario input[type="text"]{
+    flex:1;
+    padding:8px 10px;
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,0.03);
+    background:transparent;
+    color:var(--text);
+    outline:none;
+}
+.formulario input[type="text"]::placeholder{ color:rgba(191,182,232,0.6) }
+
+/* Botão roxo simples */
+.formulario button{
+    background:var(--purple);
+    color:#fff;
+    padding:8px 12px;
+    border-radius:6px;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+}
+.formulario button:hover{ background:var(--purple-dark) }
+
+/*intervalo após limite*/
+.intervalo {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.intervalo input {
+    width: 100px;
+}
+
+.erro {
+    color: red;
+    margin-top: 1rem;
+    text-align: center;
+}
+/* Resultado e histórico */
+.resultado, .historico{
+    margin:12px 0;
+    padding:10px;
+    background:rgba(255,255,255,0.02);
+    border-radius:6px;
+    border:1px solid rgba(255,255,255,0.02);
+}
+.resultado h2, .historico h2{ margin:0 0 8px; color:var(--purple) }
+.resultado p, .historico li{ margin:6px 0; color:var(--text); font-size:0.95rem }
+
+.historico ul{ list-style:none; margin:0; padding:0; max-height:220px; overflow:auto }
+.historico li{ padding:6px 8px; border-bottom:1px solid rgba(255,255,255,0.02); display:flex; justify-content:space-between }
+.historico li strong{ color:#fff }
+.historico li span{ color:var(--muted); font-size:0.9rem }
+
+/* Responsivo mínimo */
+@media (max-width:560px){
+    .formulario form{ flex-direction:column; align-items:stretch }
+    .formulario button{ width:100% }
+    .historico ul{ max-height:160px }
+}
+ 
